@@ -1,32 +1,62 @@
+/* Base Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Full Page Centering */
 body {
   font-family: Arial, sans-serif;
   background: #f7f7f7;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
   padding: 20px;
 }
 
+/* Heading */
 h1 {
   color: #e74c3c;
   font-size: 1.8em;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
+/* Wheel Container */
+.wheel-wrapper {
+  position: relative;
+  width: 400px;
+  max-width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Canvas */
 canvas {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
+/* Red Top Pointer */
+.pointer {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #e74c3c;
+  z-index: 10;
+}
+
+/* Spin Button */
 button {
   padding: 12px 20px;
   font-size: 18px;
@@ -36,8 +66,18 @@ button {
   border-radius: 6px;
   cursor: pointer;
   margin: 20px 0;
+  width: 240px;
+  max-width: 90%;
+  text-align: center;
 }
 
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Claim Button */
 .cta {
   display: inline-block;
   margin-top: 10px;
@@ -46,46 +86,95 @@ button {
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
+  width: 240px;
+  max-width: 90%;
+  text-align: center;
 }
 
+/* Result Text */
 #result {
   font-size: 20px;
   margin-top: 10px;
   color: #2c3e50;
 }
 
-/* Responsive Styling */
+/* Winner Board Title */
+h2 {
+  margin-top: 30px;
+  font-size: 1.4em;
+  color: #333;
+}
+
+/* Winner Board */
+.winner-board {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 220px;
+}
+
+.winner-board li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.winner-board li:last-child {
+  border-bottom: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   h1 {
-    font-size: 1.4em;
+    font-size: 1.5em;
   }
 
-  button {
-    font-size: 16px;
-    padding: 10px 16px;
-  }
-
-  #result {
-    font-size: 18px;
-  }
-
+  button,
   .cta {
     font-size: 16px;
+  }
+
+  .winner-board {
+    font-size: 15px;
   }
 }
 
 @media (max-width: 480px) {
-  canvas {
-    width: 90vw;
-    height: auto;
-  }
-
   h1 {
     font-size: 1.2em;
   }
 
-  button, .cta {
-    width: 90%;
-    font-size: 16px;
+  button,
+  .cta {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .winner-board {
+    font-size: 14px;
+    padding: 10px 15px;
   }
 }
