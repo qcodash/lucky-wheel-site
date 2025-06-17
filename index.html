@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Spin the Lucky Wheel</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>🎉 Spin to Win a $100 7-Eleven Gift Card! 🎉</h1>
+
   <canvas id="wheelCanvas" width="400" height="400"></canvas>
   <button onclick="spin()">🎡 Spin Now</button>
 
@@ -14,6 +16,9 @@
 
   <p>Click below to claim your reward (if you win):</p>
   <a href="https://smrturl.co/a/s013c5a008c/62?s1=" target="_blank" class="cta">Claim Offer</a>
+
+  <h2>🏆 Winner Board</h2>
+  <ul id="winnerBoard" class="winner-board"></ul>
 
   <script src="script.js"></script>
 </body>
