@@ -3,10 +3,19 @@ body {
   text-align: center;
   background: #f7f7f7;
   padding: 20px;
+  margin: 0;
 }
 
 h1 {
   color: #e74c3c;
+  font-size: 1.8em;
+  margin-top: 20px;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
 }
 
 button {
@@ -31,7 +40,43 @@ button {
 }
 
 #result {
-  font-size: 24px;
+  font-size: 20px;
   margin-top: 20px;
   color: #2c3e50;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.4em;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+
+  #result {
+    font-size: 18px;
+  }
+
+  .cta {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  canvas {
+    width: 90vw;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  button, .cta {
+    width: 90%;
+    font-size: 16px;
+  }
 }
